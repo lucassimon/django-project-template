@@ -19,5 +19,11 @@ if [ $? -ne 0 ]; then
     sudo apt-get install -q -y libffi-dev
 fi
 
+# install ffi for bcrypt
+dpkg --get-selections | grep libpq-dev > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    sudo apt-get install -q -y libpq-dev
+fi
+
 # install requirements from pip requirements file
-sudo pip install -r /vagrant/requirements.txt
+sudo pip install -r requirements/dev.txt
