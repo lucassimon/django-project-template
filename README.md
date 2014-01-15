@@ -11,7 +11,7 @@ Basic template
 
 1. Create your virtualenv
 2. Install Django
-3. $ django-admin.py startproject --template https://github.com/ryanrdetzel/django-base-template/zipball/master --extension py,md projectname
+3. $ django-admin.py startproject --template https://github.com/lucassimon/django-project-template/zipball/master --extension py,md projectname
 4. $ cd projectname
 5. $ pip install -r requirements/dev.txt
 6. $ ./manage.py syncdb --settings=projectname.settings.dev
