@@ -1,5 +1,5 @@
 from .base import *
-from decouple import Config
+from decouple import ConfigIni
 import dj_database_url
 
 ########## DEBUG CONFIGURATION
@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 COMPRESS_ENABLED = not DEBUG
 ########## END DEBUG CONFIGURATION
 
-config = Config(PROJECT_DIR.child('confs')+'/settings.ini')
+config = ConfigIni(PROJECT_DIR.child('confs')+'/settings.ini')
 
 ##########  MAILTRAP CONFIGURATION
 
@@ -69,27 +69,12 @@ DEBUG_TOOLBAR_CONFIG = {
     # normal.
     'INTERCEPT_REDIRECTS': False,
 
-    # If not set or set to None, the debug_toolbar middleware will use its
-    # built-in show_toolbar method for determining whether the toolbar
-    # should
-    # show or not. The default checks are that DEBUG must be set to True
-    # and
-    # the IP of the request must be in INTERNAL_IPS. You can provide your
-    # own
-    # method for displaying the toolbar which contains your custom logic.
-    # This
-    # method should return True or False.
-    'SHOW_TOOLBAR_CALLBACK': None,
 
     # An array of custom signals that might be in your project, defined as
     # the
     # python path to the signal.
     'EXTRA_SIGNALS': [],
 
-    # If set to True (the default) then code in Django itself won't be
-    # shown in
-    # SQL stacktraces.
-    'HIDE_DJANGO_SQL': True,
 
     # If set to True (the default) then a template's context will be
     # included
@@ -99,9 +84,5 @@ DEBUG_TOOLBAR_CONFIG = {
     # datastructures that you don't want to be evaluated.
     'SHOW_TEMPLATE_CONTEXT': True,
 
-    # If set, this will be the tag to which debug_toolbar will attach the
-    # debug
-    # toolbar. Defaults to 'body'.
-    'TAG': 'body',
 }
 ########## END DJANGO-DEBUG-TOOLBAR CONFIGURATION
