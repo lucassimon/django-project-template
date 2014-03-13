@@ -7,8 +7,6 @@ PROJECT_DIR = Path(__file__).ancestor(3)
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
-
 ADMINS = (
     ('Lucas Simon Rodrigues Magalhaes', 'lucassrod@gmail.com'),
 )
@@ -36,7 +34,7 @@ MEDIA_ROOT = PROJECT_DIR.child('media')
 
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = PROJECT_DIR.child('public')
+STATIC_ROOT = PROJECT_DIR.child('static')
 
 STATIC_URL = '/static/'
 
@@ -86,9 +84,8 @@ INSTALLED_APPS = (
 
     # third apps
     'south',
+    'django_extensions',
 )
-
-ALLOWED_HOSTS = []
 
 LOGGING = {
     'version': 1,
