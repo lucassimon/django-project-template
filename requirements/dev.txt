@@ -8,7 +8,14 @@ setuptools>=0.8
 ipython
 yolk
 ipdb
+pudb
 django_nose
 nose
 splinter
 fabric
+sphinx
+spec
+django-webtest
+webtest
+nose-progressive
+xtraceback
