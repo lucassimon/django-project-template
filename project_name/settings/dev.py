@@ -86,3 +86,38 @@ DEBUG_TOOLBAR_CONFIG = {
 
 }
 ########## END DJANGO-DEBUG-TOOLBAR CONFIGURATION
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'sqlhandler': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'sqlformatter'
+        }
+    },
+    'formatters': {
+        'sqlformatter': {
+            '()': 'sqlformatter.SqlFormatter',
+            'format': '%(levelname)s %(message)s',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins', 'sqlhandler'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    }
+}
