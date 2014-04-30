@@ -13,8 +13,8 @@ from fabric.colors import green, red
 #from fabric.decorators import runs_once
 from fabric.context_managers import shell_env
 # CHANGEME
-
-if not hasattr(env, 'server'):
+# Usar fab <command> --set server=prod para executar em producao
+if not hasattr(env, 'prod'):
     print(green('Server de Produção'))
     env.server = 'production'
     env.hosts = ['{{project}}@{{ip}}']
@@ -36,7 +36,7 @@ def print_env_and_user():
     """
     Print the envirioment and user
     """
-    print(red("Executing on %s as %s" % (env.host, env.user)))
+    print(red("Executing on %s(%s) as %s" % (env.host, env.server, env.user)))
 
 
 def django_manage(
