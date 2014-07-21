@@ -3,7 +3,7 @@ from decouple import ConfigIni
 import dj_database_url
 
 
-config = ConfigIni(PROJECT_DIR.child('confs')+'/settings-production.ini')
+config = ConfigIni(PROJECT_DIR.child('infra_confs')+'/settings-production.ini')
 
 ALLOWED_HOSTS = []
 

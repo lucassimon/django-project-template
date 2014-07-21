@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ########## END DEBUG CONFIGURATION
 
-config = ConfigIni(PROJECT_DIR.child('confs')+'/settings-staging.ini')
+config = ConfigIni(PROJECT_DIR.child('infra_confs')+'/settings-staging.ini')
 ########## INSTALLED APPS CONFIGURATION
 
 INSTALLED_APPS += (

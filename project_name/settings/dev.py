@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 COMPRESS_ENABLED = not DEBUG
 ########## END DEBUG CONFIGURATION
 
-config = ConfigIni(PROJECT_DIR.child('confs')+'/settings.ini')
+config = ConfigIni(PROJECT_DIR.child('infra_confs')+'/settings.ini')
 
 ##########  MAILTRAP CONFIGURATION
 
