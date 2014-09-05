@@ -6,6 +6,8 @@ loglevel = "error"
 pidfile = "/home/pywatch/run/staging-pywatch-site.pid"
 accesslog = "/home/pywatch/logs/gunicorn/access-staging-pywatch-site.log"
 errorlog = "/home/pywatch/logs/gunicorn/error-staging-pywatch-site.log"
-secure_scheme_headers = {'X-FORWARDED-PROTOCOL': 'http',
-                         'X-FORWARDED-PROTO': 'http',
-                         'X-FORWARDED-SSL': 'off'}
+secure_scheme_headers = {
+    'X-FORWARDED-PROTOCOL': 'http',
+    'X-FORWARDED-PROTO': 'http',
+    'X-FORWARDED-SSL': 'on'
+}
