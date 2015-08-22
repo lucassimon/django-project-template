@@ -66,7 +66,32 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
+
 TEMPLATES = [
+    {
+        'BACKEND': 'django_jinja.backend.Jinja2',
+        'DIRS': [PROJECT_DIR.child("templates")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'match_extensions': ".jinja",
+            'newstyle_gettext': True,
+            'autoescape': True,
+            'auto_reload': True,
+            'translation_enginie': 'django.utils.translation',
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.request',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [PROJECT_DIR.child("templates")],
@@ -101,6 +126,7 @@ INSTALLED_APPS = (
     'core',
 
     # third apps
+    'django_jinja',
     'django_extensions',
     'rest_framework',
     'mptt',
