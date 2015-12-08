@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-
+from __future__ import unicode_literals
 # ######## WHAT WE NEED TEST #########
 #
 # 1 - viewing of data / visualizacao de dados

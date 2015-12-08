@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-
+from __future__ import unicode_literals
 # Core Django imports
 from django.test import TestCase
 
@@ -24,14 +24,3 @@ from model_mommy import mommy
 # 1 - Cada função de test deve haver apenas 1 assert
 #
 # ####################################
-
-class TimeStampedAbstractModelTest(TestCase):
-
-    def setUp(self):
-        """
-        """
-
-    def test_simple_assert(self):
-        """
-        """
-        self.assertEqual(1+1, 2)

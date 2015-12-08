@@ -11,3 +11,10 @@ djangorestframework
 django-filter
 pygraphviz
 django-jinja
+django-mptt
+Pillow>=2.0,<3
+django-ckeditor
+django-taggit
+django-import-export
+django-recaptcha
+django-webmaster-verification
