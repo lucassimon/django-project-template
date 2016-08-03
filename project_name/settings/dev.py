@@ -35,6 +35,17 @@ DATABASES = {
         default=config('DATABASE_URL')
     )
 }
+
+# DATABASES = {
+#   'default': {
+#   'ENGINE': 'django.db.backends.postgresql',
+#   'NAME': 'emitir2',
+#   'USER': 'postgres',
+#   'PASSWORD': 'postgres',
+#   'HOST': 'localhost',
+#   'PORT': 5432
+#    }
+#}
 # ######### END DATABASE CONFIGURATION
 
 os.environ['REUSE_DB'] = "1"
