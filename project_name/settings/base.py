@@ -126,10 +126,10 @@ INSTALLED_APPS = (
     'core',
 
     # third apps
-    'django_jinja',
+    # 'django_jinja',
     'django_extensions',
-    'rest_framework',
-    'mptt',
+    # 'rest_framework',
+    # 'mptt',
 )
 
 REST_FRAMEWORK = {
