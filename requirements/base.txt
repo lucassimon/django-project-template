@@ -11,3 +11,4 @@ djangorestframework
 django-filter
 pygraphviz
 django-jinja
+django-mptt
