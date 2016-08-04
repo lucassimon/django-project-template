@@ -106,6 +106,10 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 # ######### END DJANGO-DEBUG-TOOLBAR CONFIGURATION
 
+RAVEN_CONFIG = {
+    'dsn': ''
+}
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -115,10 +119,19 @@ LOGGING = {
         }
     },
     'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'sentry': {
+            'level': 'INFO',
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+            'formatter': 'verbose'
         },
         'sqlhandler': {
             'level': 'DEBUG',
@@ -134,9 +147,23 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins', 'sqlhandler'],
+            'handlers': ['mail_admins', 'sqlhandler', 'sentry'],
             'level': 'DEBUG',
             'propagate': True,
+        },
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['sentry'],
+            'propagate': True,
+        },
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['sentry'],
+            'propagate': True,
+        },
+        'py.warnings': {
+            'handlers': ['console'],
+            'propagate': False
         },
     }
 }

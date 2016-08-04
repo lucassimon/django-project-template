@@ -68,4 +68,10 @@ if not DEBUG:
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+
+RAVEN_CONFIG = {
+    'dsn': ''
+}
+
 ALLOWED_HOSTS = '*'
+

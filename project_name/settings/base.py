@@ -104,6 +104,7 @@ INSTALLED_APPS = (
     # third apps
     # 'django_jinja',
     'django_extensions',
+    'raven.contrib.django.raven_compat',
     # 'rest_framework',
     # 'mptt',
 )
@@ -129,7 +130,24 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(name)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(name)s %(message)s'
+        },
+    },
     'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        },
+        'sentry': {
+            'level': 'INFO',
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+            'formatter': 'verbose'
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -138,9 +156,26 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'handlers': ['sentry'],
+            'level': 'INFO',
             'propagate': True,
+        },
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['sentry'],
+            'propagate': True,
+        },
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['sentry'],
+            'propagate': True,
+        },
+        'py.warnings': {
+            'handlers': ['console'],
+            'propagate': False
         },
     }
 }
+
+
+
