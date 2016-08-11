@@ -12,3 +12,4 @@ django-filter
 pygraphviz
 django-jinja
 django-mptt
+raven
