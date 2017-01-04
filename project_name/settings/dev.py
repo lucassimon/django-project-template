@@ -144,6 +144,12 @@ LOGGING = {
             '()': 'sqlformatter.SqlFormatter',
             'format': '%(levelname)s %(message)s',
         },
+                'verbose': {
+            'format': '%(levelname)s %(asctime)s %(name)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(name)s %(message)s'
+        },
     },
     'loggers': {
         'django.request': {
