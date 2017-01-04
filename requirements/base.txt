@@ -1,5 +1,4 @@
-Django=>1.10
-wsgiref==0.1.2
+Django>=1.10
 Unipath>=1.0
 psycopg2
 django-extensions
@@ -13,3 +12,8 @@ pygraphviz
 django-jinja
 django-mptt
 raven
+django-localflavor
+djangorestframework-jwt
+python-dateutil
+pymongo
+requests
